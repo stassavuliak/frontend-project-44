@@ -1,20 +1,38 @@
-const min = 1;
-const max = 100;
+// generate random operator
+const generateCalcRound = () => {
+  const operations = ['+', '-', '*'];
+  const randomIndex = Math.floor(Math.random() * operations.length);
+  const operator = operations[randomIndex]
 
-// get the random number
-const getRandomNumber = (min, max) => {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+  // generate two random numbers
+  const a = Math.floor(Math.random() * 100) + 1; 
+  const b = Math.floor(Math.random() * 100) + 1;
+
+  let result;
+
+  switch (operator) {
+    case '+':
+      result = a + b;
+      break;
+
+    case '-':
+      result = a - b;
+      break;
+      
+    case '*':
+      result = a * b;
+      break;
+  }
+
+  return {
+    question: `${a} ${operator} ${b}`,
+    correctAnswer: result.toString(),
+  }
 }
 
-// get the answer
-export const generateRound = () => {
-  const randomNumber = getRandomNumber(min, max);
-  const result = {};
+generateCalcRound(); 
 
-  result.question = randomNumber.toString();
-  result.correctAnswer = (randomNumber % 2 === 0) ? 'yes' : 'no';
-
-  return result
+for (let i = 0; i < 5; i++) {
+  const round = generateCalcRound();
+  console.log(`Question: ${round.question}, Answer: ${round.correctAnswer}`);
 }
-
-console.log(generateRound());
