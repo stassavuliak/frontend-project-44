@@ -1,20 +1,20 @@
 #!/usr/bin/env node
 
-import readLineSync from 'readline-sync';
+import readlineSync from 'readline-sync';
 import { greetUser } from '../src/cli.js';
 import { generateRound } from '../src/games/even.js';
 
 const name = greetUser();
 console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
-const playEvenGame = () => {
+const playEvenGame = (name) => {
   let correctAnswersCount = 0;
 
   while (correctAnswersCount < 3) {
     const round = generateRound();
     console.log('Question: ' + round.question);
 
-    const userAnswer = readLineSync.question('Your answer: ').trim().toLocaleLowerCase();
+    const userAnswer = readlineSync.question('Your answer: ').trim().toLocaleLowerCase();
 
     if (userAnswer === round.correctAnswer) {
       console.log('Correct!');
@@ -30,7 +30,7 @@ const playEvenGame = () => {
   console.log(`Congratulations, ${name}!`);
 }
 
-playEvenGame();
+playEvenGame(name);
 
 
 

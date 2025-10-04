@@ -1,15 +1,8 @@
-
-const min = 1;
-const max = 100;
-
-// get the random number
-const getRandomNumber = (min, max) => {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+import { getRandomNumber } from "../utils/random";
 
 // get the answer
 export const generateRound = () => {
-  const randomNumber = getRandomNumber(min, max);
+  const randomNumber = getRandomNumber(1, 100);
   const result = {};
 
   result.question = randomNumber.toString();
