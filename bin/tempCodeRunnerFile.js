@@ -1,28 +1,23 @@
+const getRandomNumber = (min, max) => 
+  Math.floor(Math.random() * (max - min + 1)) + min;
 
-import readLineSync from 'readline-sync';
-import { greetUser } from '../src/cli.js';
-import { generateRound } from '../src/games/even.js';
+const generateDivisorRound = () => {
+  const num1 = getRandomNumber(1, 50);
+  const num2 = getRandomNumber(1, 50);
 
-const name = greetUser();
-console.log('Answer "yes" if the number is even, otherwise answer "no".');
+  let copyNum1 = num1;
+  let copyNum2 = num2;
 
-const playEvenGame = () => {
-  let correctAnswersCount = 0;
-
-  while (correctAnswersCount < 3) {
-    const round = generateRound();
-    console.log('Question: ' + round.question);
-
-    const userAnswer = readLineSync.question('Your answer: ').trim().toLocaleLowerCase();
-
-    if (userAnswer === round.correctAnswer) {
-      console.log('Correct!');
-      correctAnswersCount++;
-    }
-    else {
-      console.log(`'${userAnswer}' is wrong answer :(. Correct answer was '${round.correctAnswer}'.`);
-      console.log(`Let's try again, ${name}`);
-      return
-    }
+  while (copyNum2 !== 0) {
+    let temp = copyNum2;
+    copyNum2 = copyNum1 % copyNum2;
+    copyNum1 = temp;
   }
-}
+
+  return {
+    question: `${num1} ${num2}`,
+    correctAnswer: `${copyNum1}`
+  };
+};
+
+console.log(generateDivisorRound());

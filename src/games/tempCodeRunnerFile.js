@@ -1,38 +1,24 @@
-// generate random operator
-const generateCalcRound = () => {
-  const operations = ['+', '-', '*'];
-  const randomIndex = Math.floor(Math.random() * operations.length);
-  const operator = operations[randomIndex]
+import { getRandomNumber } from '../utils/random.js';
 
-  // generate two random numbers
-  const a = Math.floor(Math.random() * 100) + 1; 
-  const b = Math.floor(Math.random() * 100) + 1;
+export const generateDivisorRound = () => {
+  const num1 = getRandomNumber(1, 50);
+  const num2 = getRandomNumber(1, 50);
 
-  let result;
+  let copyNum1 = num1;
+  let copyNum2 = num2;
 
-  switch (operator) {
-    case '+':
-      result = a + b;
-      break;
-
-    case '-':
-      result = a - b;
-      break;
-      
-    case '*':
-      result = a * b;
-      break;
+  while (copyNum2 !== 0) {
+    let temp = copyNum2;
+    copyNum2 = copyNum1 % copyNum2;
+    copyNum1 = temp;
   }
 
   return {
-    question: `${a} ${operator} ${b}`,
-    correctAnswer: result.toString(),
-  }
-}
+    question: `${num1} ${num2}`,
+    correctAnswer: `${copyNum1}`
+  };
 
-generateCalcRound(); 
 
-for (let i = 0; i < 5; i++) {
-  const round = generateCalcRound();
-  console.log(`Question: ${round.question}, Answer: ${round.correctAnswer}`);
-}
+};
+
+console.log(generateDivisorRound());

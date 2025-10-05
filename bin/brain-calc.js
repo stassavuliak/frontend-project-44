@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+
 import { greetUser } from '../src/cli.js';
 import { generateCalcRound } from '../src/games/calc.js';
 import { runGame } from '../src/engine.js';
