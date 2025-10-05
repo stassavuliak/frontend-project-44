@@ -1,6 +1,6 @@
 import { getRandomNumber } from "../utils/random.js";
 
-const getProgression = () => {
+export const generateProgressionRound = () => {
   const arrayOfNumbers = [];
 
   let stepOfProgression = Math.floor(Math.random() * 10 + 1);
@@ -21,4 +21,7 @@ const getProgression = () => {
   }
 }
 
-console.log(getProgression());
+
+
+
+
