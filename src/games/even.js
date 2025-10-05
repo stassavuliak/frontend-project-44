@@ -1,4 +1,4 @@
-import { getRandomNumber } from "../utils/random";
+import { getRandomNumber } from "../utils/random.js";
 
 const min = 1;
 const max = 100;

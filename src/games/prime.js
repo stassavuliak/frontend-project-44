@@ -11,4 +11,5 @@ export const generatePrimeRound = () => {
   return result
 }
 
-console.log(generatePrimeRound());
+
+
