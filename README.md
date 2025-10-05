@@ -26,5 +26,9 @@ Games run directly in the terminal. Examples of games: even number check, calcul
 Available commands to run the games:
   brain-games
   brain-even
+  brain-calc
+  brain-gcd
 
 Demo: [Even Number Game](https://asciinema.org/a/oq0vc3C1mxMjIhFjgqnIBrvHK)
+      [Calc Number Game](https://asciinema.org/a/Zsv64pOJWItOAnqnN39WzKKiO)
+      [Calc Greatest Common Divisor Game](https://asciinema.org/a/f7uAa3ScTfA2IoNsoH2Sdv2Qv)
